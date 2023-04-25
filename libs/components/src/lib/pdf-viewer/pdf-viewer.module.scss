@@ -1,0 +1,22 @@
+.wrapper {
+  height: 100%;
+  background: rgb(231,231,231);
+  padding: 0 16px 0 16px;
+
+  .documentContainer {
+    margin: auto;
+    width: 100%;
+    height: calc(100% - 175px); // 100% - header height
+    overflow: auto;
+
+    .document {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
+
+
+
