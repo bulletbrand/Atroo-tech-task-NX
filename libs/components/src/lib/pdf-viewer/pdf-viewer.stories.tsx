@@ -8,16 +8,21 @@ export default {
   title: 'Pdf Viewer',
 } as Meta;
 
+type ContainerSize = {
+  width: string;
+  height: string
+}
+
 type PdfViewerPropsWithContainerWidth = IPdfViewerProps & {
-  containerWidth?: string;
+  containerSize?: Partial<ContainerSize>
 };
 
 const Template: Story<IPdfViewerProps> = (args) => <PdfViewer {...args} />;
 
 const TemplateWrapped: Story<PdfViewerPropsWithContainerWidth> = (args) => {
   return (
-    <div style={{ width: args.containerWidth, margin: 'auto' }}>
-      <PdfViewer {...args} />
+    <div style={{ ...args.containerSize, margin: 'auto' }}>
+      <PdfViewer filePath={args.filePath} />
     </div>
   );
 };
@@ -44,5 +49,17 @@ export const SinglePDFInContainer = TemplateWrapped.bind({});
 
 SinglePDFInContainer.args = {
   filePath: singlePdf,
-  containerWidth: '450px',
+  containerSize: {
+    width: '450px',
+  }
+};
+
+export const MultiplyPDFInContainer = TemplateWrapped.bind({});
+
+MultiplyPDFInContainer.args = {
+  filePath: multiplyPdf,
+  containerSize: {
+    width: '450px',
+    height: '450px',
+  }
 };
