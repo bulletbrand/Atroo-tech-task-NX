@@ -7,7 +7,7 @@ interface IPdfViewerHeaderProps {
   renderTime: number | null;
 }
 
-const getRenderTime = (time: IPdfViewerHeaderProps['renderTime']) => {
+const getRenderTimeMs = (time: IPdfViewerHeaderProps['renderTime']) => {
   return time ? `${time.toFixed()}ms` : 'Loading...';
 };
 
@@ -24,7 +24,7 @@ export const PdfViewerHeader = ({
       <div className={styles.infoSection}>
         <h3 className={styles.title}>{HEADER_TEXTS.RENDER_TIME}</h3>
         <span className={styles.renderTimeText}>
-          {getRenderTime(renderTime)}
+          {getRenderTimeMs(renderTime)}
         </span>
       </div>
     </div>
