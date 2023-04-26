@@ -8,7 +8,7 @@ interface IPdfViewerHeaderProps {
 }
 
 const getRenderTimeMs = (time: IPdfViewerHeaderProps['renderTime']) => {
-  return time ? `${time.toFixed()}ms` : 'Loading...';
+  return time ? `${time.toFixed()}ms` : '-';
 };
 
 export const PdfViewerHeader = ({
