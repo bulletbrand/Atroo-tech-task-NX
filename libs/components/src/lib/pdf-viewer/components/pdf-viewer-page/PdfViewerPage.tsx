@@ -7,6 +7,7 @@ interface IPdfViewerPageProps {
   scale: number;
   pageNumber: number;
   renderMode?: PageProps['renderMode'];
+  onRenderSuccess: (pageIndex: number) => void
 }
 
 export const PdfViewerPage = ({
@@ -14,6 +15,7 @@ export const PdfViewerPage = ({
   scale,
   renderMode = 'svg',
   pageNumber,
+  onRenderSuccess
 }: IPdfViewerPageProps) => {
   return (
     <Page
@@ -24,6 +26,7 @@ export const PdfViewerPage = ({
       pageNumber={pageNumber}
       renderAnnotationLayer={false}
       renderTextLayer={false}
+      onRenderSuccess={()=>onRenderSuccess(pageNumber)}
     />
   );
 };

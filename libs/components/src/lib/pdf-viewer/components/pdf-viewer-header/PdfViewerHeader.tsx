@@ -1,5 +1,8 @@
 import React from 'react';
 import { HEADER_TEXTS } from './texts';
+import {
+  PdfViewerLoading,
+} from '../index';
 import styles from './PdfViewerHeader.module.scss';
 
 interface IPdfViewerHeaderProps {
@@ -8,7 +11,7 @@ interface IPdfViewerHeaderProps {
 }
 
 const getRenderTimeMs = (time: IPdfViewerHeaderProps['renderTime']) => {
-  return time ? `${time.toFixed()}ms` : '-';
+  return time ? `${time.toFixed()}ms` : <PdfViewerLoading size={'sm'}/>;
 };
 
 export const PdfViewerHeader = ({

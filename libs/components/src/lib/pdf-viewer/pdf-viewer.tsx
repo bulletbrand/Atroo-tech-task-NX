@@ -38,7 +38,6 @@ export function PdfViewer({ filePath }: IPdfViewerProps) {
   const { renderTime, updateRenderTime } = useMeasureRenderTime();
 
   const onDocumentLoadSuccess = ({ numPages }: pdfjs.PDFDocumentProxy) => {
-    updateRenderTime();
     setPages(getPagesFromNumber(numPages));
   };
 
@@ -62,6 +61,8 @@ export function PdfViewer({ filePath }: IPdfViewerProps) {
     );
   };
 
+  const onPageRenderSuccess = (pageIndex: number) => pageIndex === 1 && updateRenderTime();
+
   return (
     <div className={styles.wrapper}>
       <PdfViewerHeader filePath={filePath} renderTime={renderTime} />
@@ -80,6 +81,7 @@ export function PdfViewer({ filePath }: IPdfViewerProps) {
               pageNumber={page}
               scale={scale}
               pdfPageWidth={pdfPageWidth}
+              onRenderSuccess={onPageRenderSuccess}
             />
           ))}
         </Document>
