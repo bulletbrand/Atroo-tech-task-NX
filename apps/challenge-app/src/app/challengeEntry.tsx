@@ -1,5 +1,4 @@
 import { PdfViewer } from '@monorepo/components';
- import lyvyMarketSegmentPdfDoc from '../assets/pdf/lyvyMarketSegment.pdf';
 import StatementOfReturnPdfDoc from '../assets/pdf/StatementOfReturn.pdf';
 import styles from './app.module.scss';
 
